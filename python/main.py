@@ -16,7 +16,7 @@ LabelBase.register(name='caveat',   fn_regular='../fonts/caveat.regular.ttf',
                                     fn_bold='../fonts/caveat.bold.ttf')
 
 class RecipeApp(MDApp):
-    title = 'Recipie App'
+    title = 'RecipieApp'
 
     def build(self):
         """Called on app init by MDKivy"""
