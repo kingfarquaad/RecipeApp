@@ -1,0 +1,84 @@
+#:kivy 1.0
+#: import ThemeManager themes.ThemeManager
+
+#region Labels And Inputs
+<CustomLabel>:
+    font_name: ThemeManager.default_font()
+    color: ThemeManager.default_font_colour()
+    halign: "left"
+    valign: "center"
+    text_size: self.width, None
+    size_hint: 1, None
+    height: self.texture_size[1]
+    font_size: ThemeManager.default_font_size()
+
+<CustomInput>:
+    background_color: 1, 1, 1, 1
+    padding: 0
+    font_name: ThemeManager.default_font()
+    font_color: 
+    halign: "left"
+    valign: "center"
+    text_size: self.width, None
+    size_hint: 1, None
+    height: self.minimum_height
+    font_size: ThemeManager.default_font_size()
+    hint_text_color: 0, 0, 0, 0.1
+    cursor_width: 4
+    cursor_color: ThemeManager.cursor_colour()
+
+<RecipeInput>:
+    background_color: 1, 1, 1, 0
+    cursor_color: 0, 0, 0, 0 
+    readonly: True
+#endregion
+
+#region Hoverables And Buttons
+<HoverableItem>:
+    background_normal: ''
+    background_color: self.not_selected_default_background_colour
+
+<CustomButton>:
+    font_name: ThemeManager.default_font()
+    color: ThemeManager.default_font_colour()
+    text_size: self.width, None
+    size_hint: 1, None
+    height: self.texture_size[1]
+    font_size: ThemeManager.default_font_size()
+    on_release: self.on_click()
+
+<CustomIconButton>:
+    on_release: self.on_click()
+    Image:
+        id: button_image
+        size: root.size[0] - 20, root.size[1] - 20
+        pos: self.parent.x + 10, self.parent.y + 10
+
+<FloatingButtonContainer>:
+    pos_hint: {"right": 1, "y": 0}
+    padding: 16
+    spacing: 16
+    orientation: "vertical"
+    MDBoxLayout:
+        spacing: 16
+        MDBoxLayout:
+        MDBoxLayout:
+            orientation: "vertical"
+            size_hint: None, 1
+            width: self.minimum_width
+            MDBoxLayout:
+            MDBoxLayout:
+                id: buttons_ins_point
+                orientation: "vertical"
+                spacing: 16
+                size_hint: None, None
+                size: self.minimum_size
+
+<FloatingButton>:
+    size_hint: None, None
+    size: 64, 64  
+
+<CustomSlider>:
+    step: 1
+
+#endregion

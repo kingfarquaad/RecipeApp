@@ -1,0 +1,62 @@
+#:kivy 1.0
+#: import ThemeManager themes.ThemeManager
+
+<Page>:
+    md_bg_color: ThemeManager.page_bg_colour()
+    padding: 32
+    pos_hint: {"x": 0, "y": 0}
+    ScrollView:
+        id: scrollview
+        background_color: "green"
+        size_hint: 1, 1
+        do_scroll_x: False
+        do_scroll_y: True
+        overscroll: 0
+        always_overscroll: False
+        bar_width: 0
+        scroll_type: ['bars', 'content']
+        MDBoxLayout:
+            id: page_section_ins_point
+            orientation: "vertical"
+            size_hint: 1, None
+            height: self.minimum_height
+
+<ContentsPageSection>:
+    cols: 1
+    spacing: ThemeManager.content_spacing()
+    padding: ThemeManager.content_padding()
+    size_hint: 1, None
+    height: self.minimum_height
+    CustomLabel:
+        id: page_header
+        text: "Contents"
+        bold: True
+        font_size: ThemeManager.header_font_size()
+
+<RecipePageSection>:
+    id: contents_section_ins_point
+    cols: 1
+    spacing: ThemeManager.content_spacing()
+    padding: ThemeManager.content_padding()
+    size_hint: 1, None
+    height: self.minimum_height
+    RecipeInput:
+        id: recipe_name
+        bold: True
+        font_size: ThemeManager.header_font_size()
+        hint_text: "Boiled Eggs"
+    RecipeInput:
+        id: recipe_chapter
+        hint_text: "Snacks"
+    CustomLabel:
+        text: "Ingredients:"
+        bold: True
+    RecipeInput:
+        id: recipe_ingredients
+        hint_text: "5kg of Eggs"
+    CustomLabel:
+        text: "Method:"
+        bold: True
+    RecipeInput:
+        id: recipe_method
+        hint_text: "Boil for 2 hours."

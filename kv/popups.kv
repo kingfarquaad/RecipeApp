@@ -1,0 +1,41 @@
+#:kivy 1.0
+#: import ThemeManager themes.ThemeManager
+#: import Settings settings.SettingsManager
+#: import Window kivy.core.window
+
+<CustomPopup>:
+    size_hint: None, None
+    size: 400, content.height + root.title_size + dp(48)
+    title_align: "center"
+    title_size: ThemeManager.header_font_size()
+    title_font: ThemeManager.default_font()
+    title_color: "black"
+    separator_color: "white"
+    background: '../images/white_square.png'
+    background_color: ThemeManager.floating_button_hovered_not_selected_colour()
+    MDBoxLayout:
+        id: content
+        orientation: "vertical"
+        size_hint: 1, None
+        height: self.minimum_height
+
+<SettingsPopupSection>:
+    id: content
+    orientation: "vertical"
+    size_hint: 1, None
+    height: self.minimum_height
+    spacing: ThemeManager.content_spacing()
+    MDBoxLayout:
+        size_hint: 1, None
+        height: 16
+    MDBoxLayout:
+        size_hint: 1, None
+        height: 64
+        CustomLabel:
+            size_hint: 2, 1
+            text: "Text Size: "
+        SettingsSlider:
+            action: "text_size"
+            value: Settings.font_setting_slider
+            steps: 1
+            range: 1, 5
